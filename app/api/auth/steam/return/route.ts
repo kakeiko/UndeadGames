@@ -30,44 +30,35 @@ export async function GET(req: NextRequest) {
   });
 
   const text = await steamRes.text();
-
   if (!text.includes("is_valid:true")) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
-  const steamId = claimedId.split("/").pop();
+  const steamId = claimedId.split("/").pop()!;
 
   const response = NextResponse.redirect(new URL("/dashboard", req.url));
-
-response.cookies.set("steamid", steamId!, {
-  httpOnly: true,
-  path: "/",
-  secure: true,
-  sameSite: "lax",
-  maxAge: 60 * 60 * 24 * 7,
-});
-  
-  if (await prisma.user.findUnique({ where: { steamId: steamId! } })) {
-    return response;
-  }
-  
-  const user = await prisma.user.create({
-    data: {
-      steamId: steamId!,
-    },
+  response.cookies.set("steamid", steamId, {
+    httpOnly: true,
+    path: "/",
+    secure: true,
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24 * 7,
   });
-  await Promise.all(MOCK_BADGES.map(async (badge) => {
-    await fetch(`${req.nextUrl.origin}/api/medalha`, {
-      method:'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-            icon:badge.icon,
-            objetivo:badge.objetivo,
-            steamId:steamId
-      })
-    })
-  }));
 
-  
+  const existingUser = await prisma.user.findUnique({ where: { steamId } });
+
+  if (!existingUser) {
+    prisma.user.create({ data: { steamId } }).then(() => {
+      Promise.all(
+        MOCK_BADGES.map((badge) =>
+          fetch(`${req.nextUrl.origin}/api/medalha`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ icon: badge.icon, objetivo: badge.objetivo, steamId }),
+          })
+        )
+      ).catch(console.error);
+    });
+  }
   return response;
 }
