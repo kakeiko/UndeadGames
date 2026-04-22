@@ -40,7 +40,6 @@ async function getAchievementSummary({
 export async function GET() {
   const cookieStore = await cookies();
   const steamId = cookieStore.get("steamid")?.value;
-
   if (!steamId) {
     return NextResponse.json({ error: "Nao autenticado" }, { status: 401 });
   }
@@ -79,6 +78,16 @@ export async function GET() {
       };
     })
   );
+const res = NextResponse.json({ games: gamesWithAchievements, profile });
+  
+  res.cookies.set("steamid", steamId, {
+    httpOnly: true,
+    path: "/",
+    secure: true,
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24 * 7,
+  });
 
-  return NextResponse.json({ games: gamesWithAchievements, profile });
+  return res;
 }
+

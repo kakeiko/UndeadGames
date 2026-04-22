@@ -44,7 +44,6 @@ export async function GET(req: NextRequest) {
     sameSite: "lax",
     maxAge: 60 * 60 * 24 * 7,
   });
-  console.log(cookie)
 
   const existingUser = await prisma.user.findUnique({ where: { steamId } });
 
