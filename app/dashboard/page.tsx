@@ -212,7 +212,7 @@ export default function Dashboard() {
           </div>
           <Avatar src={profileAvatar} name={profileName} />
         </div>
-        <Link href="/api/auth/logout">Logout</Link>
+        <a href="/api/auth/logout">Logout</a>
       </nav>
 
       <div className="max-w-[1100px] mx-auto px-6 py-8">
