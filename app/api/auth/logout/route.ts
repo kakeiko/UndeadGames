@@ -1,12 +1,11 @@
 'use server'
 
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
-import { getRequestOrigin } from "@/app/utils/request-origin";
+import { NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
     const cookieStore = await cookies();
     cookieStore.delete("steamid");
     
-    return NextResponse.redirect(new URL("/", getRequestOrigin(req)));
+    return NextResponse.redirect(new URL("/", process.env.NEXT_PUBLIC_BASE_URL));
 }

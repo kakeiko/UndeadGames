@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/app/utils/prisma";
 import type { Badge } from "@/app/dashboard/interfaces/badge";
-import { getRequestOrigin } from "@/app/utils/request-origin";
 
 const MOCK_BADGES: Badge[] = [
   { id: '1', icon: "\u{1F9DF}", objetivo: "Primeiro comeback", conquistada: true },
@@ -12,7 +11,6 @@ const MOCK_BADGES: Badge[] = [
 ];
 
 export async function GET(req: NextRequest) {
-  const origin = getRequestOrigin(req);
   const url = new URL(req.url);
   const params = Object.fromEntries(url.searchParams);
 
@@ -42,24 +40,21 @@ export async function GET(req: NextRequest) {
   const response = NextResponse.redirect(new URL("/dashboard", req.url));
 
   response.cookies.set("steamid", steamId!, {
-    httpOnly: true,
-    path: "/",
-    sameSite: "lax",
-    secure: origin.startsWith("https://"),
-    maxAge: 60 * 60 * 24 * 30,
+      httpOnly: true,
+      path: "/",
   });
   
   if (await prisma.user.findUnique({ where: { steamId: steamId! } })) {
     return response;
   }
   
-  await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       steamId: steamId!,
     },
   });
   await Promise.all(MOCK_BADGES.map(async (badge) => {
-    await fetch(`${origin}/api/medalha`, {
+    await fetch(`${req.nextUrl.origin}/api/medalha`, {
       method:'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
