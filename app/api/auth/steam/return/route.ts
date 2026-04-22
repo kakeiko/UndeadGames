@@ -37,13 +37,14 @@ export async function GET(req: NextRequest) {
   const steamId = claimedId.split("/").pop()!;
 
   const response = NextResponse.redirect(new URL("/dashboard", req.url));
-  response.cookies.set("steamid", steamId, {
+  const cookie = response.cookies.set("steamid", steamId, {
     httpOnly: true,
     path: "/",
     secure: true,
     sameSite: "lax",
     maxAge: 60 * 60 * 24 * 7,
   });
+  console.log(cookie)
 
   const existingUser = await prisma.user.findUnique({ where: { steamId } });
 
@@ -60,5 +61,6 @@ export async function GET(req: NextRequest) {
       ).catch(console.error);
     });
   }
+
   return response;
 }
