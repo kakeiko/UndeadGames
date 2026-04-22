@@ -7,8 +7,8 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-prisma/migrations
-prisma/schema.prisna
+/prisma/migrations
+/prisma/schema.prisna
 
 # testing
 /coverage
@@ -39,5 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-/app/generated/prisma
