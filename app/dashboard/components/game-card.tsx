@@ -6,7 +6,6 @@ import { toHours } from "../utils/dashboard-math";
 
 interface GameCardProps {
   game: Game;
-  onNewGoal: (game: Game) => void;
 }
 
 export function GameCard({ game }: GameCardProps): JSX.Element {

@@ -115,7 +115,7 @@ export default function Dashboard() {
         const jogosWithMetas = filtered.map((game: Game) => ({
           ...game,
           metas: metasData.goals?.filter((g) => g.jogo === game.name) || [],
-        })).filter((game) => game.metas.length > 0);
+        })).filter((game: Game & { metas: GoalBase[] }) => game.metas.length > 0);
         
         for (const jogo of jogosWithMetas) {
           const meta =  metasData.goals?.find((g) => g.jogo === jogo.name);
