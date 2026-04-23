@@ -7,5 +7,5 @@ export async function GET() {
     const cookieStore = await cookies();
     cookieStore.delete("steamid");
     
-    return NextResponse.redirect(new URL("/", process.env.NEXT_PUBLIC_BASE_URL));
+    return NextResponse.redirect(new URL("/", process.env.NEXT_PUBLIC_APP_URL));
 }
