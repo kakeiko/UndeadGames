@@ -2,10 +2,8 @@ import type { PlatinumGuide } from "../interfaces/guide";
 import type { SteamAchievement } from "../interfaces/achievement";
 
 interface GuidePanelProps {
-  approvedOnly: boolean;
   guides: PlatinumGuide[];
   onCreateGuide: () => void;
-  onToggleApprovedOnly: (value: boolean) => void;
   selectedAchievement: SteamAchievement | null;
 }
 
