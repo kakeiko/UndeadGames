@@ -61,3 +61,13 @@ export type DadosProgresso = Prisma.DadosProgressoModel
  * 
  */
 export type Medalha = Prisma.MedalhaModel
+/**
+ * Model Platinas
+ * 
+ */
+export type Platinas = Prisma.PlatinasModel
+/**
+ * Model guias_Platinas
+ * 
+ */
+export type guias_Platinas = Prisma.guias_PlatinasModel

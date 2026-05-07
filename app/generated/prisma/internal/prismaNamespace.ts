@@ -387,7 +387,9 @@ export const ModelName = {
   User: 'User',
   Meta: 'Meta',
   DadosProgresso: 'DadosProgresso',
-  Medalha: 'Medalha'
+  Medalha: 'Medalha',
+  Platinas: 'Platinas',
+  guias_Platinas: 'guias_Platinas'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -403,7 +405,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "meta" | "dadosProgresso" | "medalha"
+    modelProps: "user" | "meta" | "dadosProgresso" | "medalha" | "platinas" | "guias_Platinas"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -703,6 +705,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Platinas: {
+      payload: Prisma.$PlatinasPayload<ExtArgs>
+      fields: Prisma.PlatinasFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PlatinasFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PlatinasFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>
+        }
+        findFirst: {
+          args: Prisma.PlatinasFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PlatinasFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>
+        }
+        findMany: {
+          args: Prisma.PlatinasFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>[]
+        }
+        create: {
+          args: Prisma.PlatinasCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>
+        }
+        createMany: {
+          args: Prisma.PlatinasCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PlatinasCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>[]
+        }
+        delete: {
+          args: Prisma.PlatinasDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>
+        }
+        update: {
+          args: Prisma.PlatinasUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>
+        }
+        deleteMany: {
+          args: Prisma.PlatinasDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PlatinasUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PlatinasUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>[]
+        }
+        upsert: {
+          args: Prisma.PlatinasUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatinasPayload>
+        }
+        aggregate: {
+          args: Prisma.PlatinasAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePlatinas>
+        }
+        groupBy: {
+          args: Prisma.PlatinasGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatinasGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PlatinasCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatinasCountAggregateOutputType> | number
+        }
+      }
+    }
+    guias_Platinas: {
+      payload: Prisma.$guias_PlatinasPayload<ExtArgs>
+      fields: Prisma.guias_PlatinasFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.guias_PlatinasFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.guias_PlatinasFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>
+        }
+        findFirst: {
+          args: Prisma.guias_PlatinasFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.guias_PlatinasFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>
+        }
+        findMany: {
+          args: Prisma.guias_PlatinasFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>[]
+        }
+        create: {
+          args: Prisma.guias_PlatinasCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>
+        }
+        createMany: {
+          args: Prisma.guias_PlatinasCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.guias_PlatinasCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>[]
+        }
+        delete: {
+          args: Prisma.guias_PlatinasDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>
+        }
+        update: {
+          args: Prisma.guias_PlatinasUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>
+        }
+        deleteMany: {
+          args: Prisma.guias_PlatinasDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.guias_PlatinasUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.guias_PlatinasUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>[]
+        }
+        upsert: {
+          args: Prisma.guias_PlatinasUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$guias_PlatinasPayload>
+        }
+        aggregate: {
+          args: Prisma.Guias_PlatinasAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGuias_Platinas>
+        }
+        groupBy: {
+          args: Prisma.guias_PlatinasGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Guias_PlatinasGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.guias_PlatinasCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Guias_PlatinasCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -782,10 +932,41 @@ export const MedalhaScalarFieldEnum = {
   icon: 'icon',
   objetivo: 'objetivo',
   conquistada: 'conquistada',
+  adjetivo: 'adjetivo',
   donoSteamId: 'donoSteamId'
 } as const
 
 export type MedalhaScalarFieldEnum = (typeof MedalhaScalarFieldEnum)[keyof typeof MedalhaScalarFieldEnum]
+
+
+export const PlatinasScalarFieldEnum = {
+  id: 'id',
+  jogo: 'jogo',
+  trofeuInicial: 'trofeuInicial',
+  trofeuFinal: 'trofeuFinal',
+  trofeuAtual: 'trofeuAtual',
+  points: 'points',
+  concluido: 'concluido',
+  donoSteamId: 'donoSteamId'
+} as const
+
+export type PlatinasScalarFieldEnum = (typeof PlatinasScalarFieldEnum)[keyof typeof PlatinasScalarFieldEnum]
+
+
+export const Guias_PlatinasScalarFieldEnum = {
+  id: 'id',
+  jogo: 'jogo',
+  conquistaApiName: 'conquistaApiName',
+  conquistaNome: 'conquistaNome',
+  titulo: 'titulo',
+  descricao: 'descricao',
+  texto: 'texto',
+  link: 'link',
+  aprovado: 'aprovado',
+  donoSteamId: 'donoSteamId'
+} as const
+
+export type Guias_PlatinasScalarFieldEnum = (typeof Guias_PlatinasScalarFieldEnum)[keyof typeof Guias_PlatinasScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -802,6 +983,14 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
 
@@ -957,6 +1146,8 @@ export type GlobalOmitConfig = {
   meta?: Prisma.MetaOmit
   dadosProgresso?: Prisma.DadosProgressoOmit
   medalha?: Prisma.MedalhaOmit
+  platinas?: Prisma.PlatinasOmit
+  guias_Platinas?: Prisma.guias_PlatinasOmit
 }
 
 /* Types for Logging */

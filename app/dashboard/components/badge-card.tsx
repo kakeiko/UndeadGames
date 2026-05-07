@@ -11,8 +11,8 @@ export function BadgeCard({ badge }: BadgeCardProps): JSX.Element {
     <div
       className={`rounded-xl p-3.5 flex flex-col items-center gap-2 ${
         badge.conquistada
-          ? "bg-[#7c6af7]/[0.08] border border-[#7c6af7]/35"
-          : "bg-white/[0.02] border border-white/[0.06] opacity-45"
+          ? "bg-[#7c6af7]/8 border border-[#7c6af7]/35"
+          : "bg-white/2 border border-white/6 opacity-45"
       }`}
     >
       <span className={`text-[28px] leading-none ${badge.conquistada ? "" : "grayscale"}`}>{badge.icon}</span>

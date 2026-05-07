@@ -29,6 +29,7 @@ export type MedalhaMinAggregateOutputType = {
   icon: string | null
   objetivo: string | null
   conquistada: boolean | null
+  adjetivo: string | null
   donoSteamId: string | null
 }
 
@@ -37,6 +38,7 @@ export type MedalhaMaxAggregateOutputType = {
   icon: string | null
   objetivo: string | null
   conquistada: boolean | null
+  adjetivo: string | null
   donoSteamId: string | null
 }
 
@@ -45,6 +47,7 @@ export type MedalhaCountAggregateOutputType = {
   icon: number
   objetivo: number
   conquistada: number
+  adjetivo: number
   donoSteamId: number
   _all: number
 }
@@ -55,6 +58,7 @@ export type MedalhaMinAggregateInputType = {
   icon?: true
   objetivo?: true
   conquistada?: true
+  adjetivo?: true
   donoSteamId?: true
 }
 
@@ -63,6 +67,7 @@ export type MedalhaMaxAggregateInputType = {
   icon?: true
   objetivo?: true
   conquistada?: true
+  adjetivo?: true
   donoSteamId?: true
 }
 
@@ -71,6 +76,7 @@ export type MedalhaCountAggregateInputType = {
   icon?: true
   objetivo?: true
   conquistada?: true
+  adjetivo?: true
   donoSteamId?: true
   _all?: true
 }
@@ -152,6 +158,7 @@ export type MedalhaGroupByOutputType = {
   icon: string
   objetivo: string
   conquistada: boolean
+  adjetivo: string
   donoSteamId: string
   _count: MedalhaCountAggregateOutputType | null
   _min: MedalhaMinAggregateOutputType | null
@@ -181,6 +188,7 @@ export type MedalhaWhereInput = {
   icon?: Prisma.StringFilter<"Medalha"> | string
   objetivo?: Prisma.StringFilter<"Medalha"> | string
   conquistada?: Prisma.BoolFilter<"Medalha"> | boolean
+  adjetivo?: Prisma.StringFilter<"Medalha"> | string
   donoSteamId?: Prisma.StringFilter<"Medalha"> | string
   dono?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
@@ -190,6 +198,7 @@ export type MedalhaOrderByWithRelationInput = {
   icon?: Prisma.SortOrder
   objetivo?: Prisma.SortOrder
   conquistada?: Prisma.SortOrder
+  adjetivo?: Prisma.SortOrder
   donoSteamId?: Prisma.SortOrder
   dono?: Prisma.UserOrderByWithRelationInput
 }
@@ -202,6 +211,7 @@ export type MedalhaWhereUniqueInput = Prisma.AtLeast<{
   icon?: Prisma.StringFilter<"Medalha"> | string
   objetivo?: Prisma.StringFilter<"Medalha"> | string
   conquistada?: Prisma.BoolFilter<"Medalha"> | boolean
+  adjetivo?: Prisma.StringFilter<"Medalha"> | string
   donoSteamId?: Prisma.StringFilter<"Medalha"> | string
   dono?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
@@ -211,6 +221,7 @@ export type MedalhaOrderByWithAggregationInput = {
   icon?: Prisma.SortOrder
   objetivo?: Prisma.SortOrder
   conquistada?: Prisma.SortOrder
+  adjetivo?: Prisma.SortOrder
   donoSteamId?: Prisma.SortOrder
   _count?: Prisma.MedalhaCountOrderByAggregateInput
   _max?: Prisma.MedalhaMaxOrderByAggregateInput
@@ -225,6 +236,7 @@ export type MedalhaScalarWhereWithAggregatesInput = {
   icon?: Prisma.StringWithAggregatesFilter<"Medalha"> | string
   objetivo?: Prisma.StringWithAggregatesFilter<"Medalha"> | string
   conquistada?: Prisma.BoolWithAggregatesFilter<"Medalha"> | boolean
+  adjetivo?: Prisma.StringWithAggregatesFilter<"Medalha"> | string
   donoSteamId?: Prisma.StringWithAggregatesFilter<"Medalha"> | string
 }
 
@@ -233,6 +245,7 @@ export type MedalhaCreateInput = {
   icon: string
   objetivo: string
   conquistada?: boolean
+  adjetivo: string
   dono: Prisma.UserCreateNestedOneWithoutMedalhasInput
 }
 
@@ -241,6 +254,7 @@ export type MedalhaUncheckedCreateInput = {
   icon: string
   objetivo: string
   conquistada?: boolean
+  adjetivo: string
   donoSteamId: string
 }
 
@@ -249,6 +263,7 @@ export type MedalhaUpdateInput = {
   icon?: Prisma.StringFieldUpdateOperationsInput | string
   objetivo?: Prisma.StringFieldUpdateOperationsInput | string
   conquistada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  adjetivo?: Prisma.StringFieldUpdateOperationsInput | string
   dono?: Prisma.UserUpdateOneRequiredWithoutMedalhasNestedInput
 }
 
@@ -257,6 +272,7 @@ export type MedalhaUncheckedUpdateInput = {
   icon?: Prisma.StringFieldUpdateOperationsInput | string
   objetivo?: Prisma.StringFieldUpdateOperationsInput | string
   conquistada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  adjetivo?: Prisma.StringFieldUpdateOperationsInput | string
   donoSteamId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -265,6 +281,7 @@ export type MedalhaCreateManyInput = {
   icon: string
   objetivo: string
   conquistada?: boolean
+  adjetivo: string
   donoSteamId: string
 }
 
@@ -273,6 +290,7 @@ export type MedalhaUpdateManyMutationInput = {
   icon?: Prisma.StringFieldUpdateOperationsInput | string
   objetivo?: Prisma.StringFieldUpdateOperationsInput | string
   conquistada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  adjetivo?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MedalhaUncheckedUpdateManyInput = {
@@ -280,6 +298,7 @@ export type MedalhaUncheckedUpdateManyInput = {
   icon?: Prisma.StringFieldUpdateOperationsInput | string
   objetivo?: Prisma.StringFieldUpdateOperationsInput | string
   conquistada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  adjetivo?: Prisma.StringFieldUpdateOperationsInput | string
   donoSteamId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -298,6 +317,7 @@ export type MedalhaCountOrderByAggregateInput = {
   icon?: Prisma.SortOrder
   objetivo?: Prisma.SortOrder
   conquistada?: Prisma.SortOrder
+  adjetivo?: Prisma.SortOrder
   donoSteamId?: Prisma.SortOrder
 }
 
@@ -306,6 +326,7 @@ export type MedalhaMaxOrderByAggregateInput = {
   icon?: Prisma.SortOrder
   objetivo?: Prisma.SortOrder
   conquistada?: Prisma.SortOrder
+  adjetivo?: Prisma.SortOrder
   donoSteamId?: Prisma.SortOrder
 }
 
@@ -314,6 +335,7 @@ export type MedalhaMinOrderByAggregateInput = {
   icon?: Prisma.SortOrder
   objetivo?: Prisma.SortOrder
   conquistada?: Prisma.SortOrder
+  adjetivo?: Prisma.SortOrder
   donoSteamId?: Prisma.SortOrder
 }
 
@@ -364,6 +386,7 @@ export type MedalhaCreateWithoutDonoInput = {
   icon: string
   objetivo: string
   conquistada?: boolean
+  adjetivo: string
 }
 
 export type MedalhaUncheckedCreateWithoutDonoInput = {
@@ -371,6 +394,7 @@ export type MedalhaUncheckedCreateWithoutDonoInput = {
   icon: string
   objetivo: string
   conquistada?: boolean
+  adjetivo: string
 }
 
 export type MedalhaCreateOrConnectWithoutDonoInput = {
@@ -407,6 +431,7 @@ export type MedalhaScalarWhereInput = {
   icon?: Prisma.StringFilter<"Medalha"> | string
   objetivo?: Prisma.StringFilter<"Medalha"> | string
   conquistada?: Prisma.BoolFilter<"Medalha"> | boolean
+  adjetivo?: Prisma.StringFilter<"Medalha"> | string
   donoSteamId?: Prisma.StringFilter<"Medalha"> | string
 }
 
@@ -415,6 +440,7 @@ export type MedalhaCreateManyDonoInput = {
   icon: string
   objetivo: string
   conquistada?: boolean
+  adjetivo: string
 }
 
 export type MedalhaUpdateWithoutDonoInput = {
@@ -422,6 +448,7 @@ export type MedalhaUpdateWithoutDonoInput = {
   icon?: Prisma.StringFieldUpdateOperationsInput | string
   objetivo?: Prisma.StringFieldUpdateOperationsInput | string
   conquistada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  adjetivo?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MedalhaUncheckedUpdateWithoutDonoInput = {
@@ -429,6 +456,7 @@ export type MedalhaUncheckedUpdateWithoutDonoInput = {
   icon?: Prisma.StringFieldUpdateOperationsInput | string
   objetivo?: Prisma.StringFieldUpdateOperationsInput | string
   conquistada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  adjetivo?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MedalhaUncheckedUpdateManyWithoutDonoInput = {
@@ -436,6 +464,7 @@ export type MedalhaUncheckedUpdateManyWithoutDonoInput = {
   icon?: Prisma.StringFieldUpdateOperationsInput | string
   objetivo?: Prisma.StringFieldUpdateOperationsInput | string
   conquistada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  adjetivo?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -445,6 +474,7 @@ export type MedalhaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   icon?: boolean
   objetivo?: boolean
   conquistada?: boolean
+  adjetivo?: boolean
   donoSteamId?: boolean
   dono?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["medalha"]>
@@ -454,6 +484,7 @@ export type MedalhaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   icon?: boolean
   objetivo?: boolean
   conquistada?: boolean
+  adjetivo?: boolean
   donoSteamId?: boolean
   dono?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["medalha"]>
@@ -463,6 +494,7 @@ export type MedalhaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   icon?: boolean
   objetivo?: boolean
   conquistada?: boolean
+  adjetivo?: boolean
   donoSteamId?: boolean
   dono?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["medalha"]>
@@ -472,10 +504,11 @@ export type MedalhaSelectScalar = {
   icon?: boolean
   objetivo?: boolean
   conquistada?: boolean
+  adjetivo?: boolean
   donoSteamId?: boolean
 }
 
-export type MedalhaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "icon" | "objetivo" | "conquistada" | "donoSteamId", ExtArgs["result"]["medalha"]>
+export type MedalhaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "icon" | "objetivo" | "conquistada" | "adjetivo" | "donoSteamId", ExtArgs["result"]["medalha"]>
 export type MedalhaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dono?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -496,6 +529,7 @@ export type $MedalhaPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     icon: string
     objetivo: string
     conquistada: boolean
+    adjetivo: string
     donoSteamId: string
   }, ExtArgs["result"]["medalha"]>
   composites: {}
@@ -925,6 +959,7 @@ export interface MedalhaFieldRefs {
   readonly icon: Prisma.FieldRef<"Medalha", 'String'>
   readonly objetivo: Prisma.FieldRef<"Medalha", 'String'>
   readonly conquistada: Prisma.FieldRef<"Medalha", 'Boolean'>
+  readonly adjetivo: Prisma.FieldRef<"Medalha", 'String'>
   readonly donoSteamId: Prisma.FieldRef<"Medalha", 'String'>
 }
     

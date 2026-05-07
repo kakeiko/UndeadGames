@@ -3,11 +3,14 @@ import { prisma } from "@/app/utils/prisma";
 import type { Badge } from "@/app/dashboard/interfaces/badge";
 
 const MOCK_BADGES: Badge[] = [
-  { id: '1', icon: "\u{1F9DF}", objetivo: "Primeiro comeback", conquistada: true },
-  { id: '2', icon: "\u{1F525}", objetivo: "3 metas seguidas", conquistada: true },
-  { id: '3', icon: "\u2694\uFE0F", objetivo: "Caçador de backlog", conquistada: false },
-  { id: '4', icon: "\u{1F451}", objetivo: "100 pontos", conquistada: false },
-  { id: '5', icon: "\u{1F480}", objetivo: "Lendário", conquistada: false },
+  { id: '1', icon: "\u{1F9DF}", objetivo: "Primeiro comeback", conquistada: true , adjetivo:'Backlog'},
+  { id: '2', icon: "\u{1F525}", objetivo: "3 metas seguidas", conquistada: true , adjetivo:'Backlog'},
+  { id: '3', icon: "\u2694\uFE0F", objetivo: "Caçador de backlog", conquistada: false , adjetivo:'Backlog'},
+  { id: '4', icon: "\u{1F451}", objetivo: "100 pontos", conquistada: false , adjetivo:'Backlog'},
+  { id: '5', icon: "\u{1F480}", objetivo: "Lendário", conquistada: false , adjetivo:'Backlog'},
+  { id: '6', icon: "\u{1F3C6}", objetivo: "Caçador de Platina", conquistada: false , adjetivo:'Platina'},
+  { id: '7', icon: "\u{1F48E}", objetivo: "Mestre das Platinas", conquistada: false, adjetivo:'Platina'},
+  { id: '8', icon: "\u{1F531}", objetivo: "Lenda Suprema", conquistada: false, adjetivo:'Platina' },
 ];
 
 export async function GET(req: NextRequest) {
@@ -48,7 +51,6 @@ export async function GET(req: NextRequest) {
   });
 
   const existingUser = await prisma.user.findUnique({ where: { steamId } });
-
   if (!existingUser) {
     prisma.user.create({ data: { steamId } }).then(() => {
       Promise.all(
@@ -56,7 +58,7 @@ export async function GET(req: NextRequest) {
           fetch(`${appUrl}/api/medalha`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ icon: badge.icon, objetivo: badge.objetivo, steamId }),
+            body: JSON.stringify({ icon: badge.icon, objetivo: badge.objetivo, steamId, adjetivo: badge.adjetivo }),
           })
         )
       ).catch(console.error);

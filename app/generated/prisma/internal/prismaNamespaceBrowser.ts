@@ -54,7 +54,9 @@ export const ModelName = {
   User: 'User',
   Meta: 'Meta',
   DadosProgresso: 'DadosProgresso',
-  Medalha: 'Medalha'
+  Medalha: 'Medalha',
+  Platinas: 'Platinas',
+  guias_Platinas: 'guias_Platinas'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -113,10 +115,41 @@ export const MedalhaScalarFieldEnum = {
   icon: 'icon',
   objetivo: 'objetivo',
   conquistada: 'conquistada',
+  adjetivo: 'adjetivo',
   donoSteamId: 'donoSteamId'
 } as const
 
 export type MedalhaScalarFieldEnum = (typeof MedalhaScalarFieldEnum)[keyof typeof MedalhaScalarFieldEnum]
+
+
+export const PlatinasScalarFieldEnum = {
+  id: 'id',
+  jogo: 'jogo',
+  trofeuInicial: 'trofeuInicial',
+  trofeuFinal: 'trofeuFinal',
+  trofeuAtual: 'trofeuAtual',
+  points: 'points',
+  concluido: 'concluido',
+  donoSteamId: 'donoSteamId'
+} as const
+
+export type PlatinasScalarFieldEnum = (typeof PlatinasScalarFieldEnum)[keyof typeof PlatinasScalarFieldEnum]
+
+
+export const Guias_PlatinasScalarFieldEnum = {
+  id: 'id',
+  jogo: 'jogo',
+  conquistaApiName: 'conquistaApiName',
+  conquistaNome: 'conquistaNome',
+  titulo: 'titulo',
+  descricao: 'descricao',
+  texto: 'texto',
+  link: 'link',
+  aprovado: 'aprovado',
+  donoSteamId: 'donoSteamId'
+} as const
+
+export type Guias_PlatinasScalarFieldEnum = (typeof Guias_PlatinasScalarFieldEnum)[keyof typeof Guias_PlatinasScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -133,4 +166,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

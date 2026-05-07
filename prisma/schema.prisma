@@ -19,6 +19,8 @@ model User {
 
   metas     Meta[]
   medalhas  Medalha[]
+  platinas  Platinas[]
+  guiasPlatinas guias_Platinas[]
 }
 
 model Meta {
@@ -49,6 +51,33 @@ model Medalha {
   icon        String
   objetivo    String
   conquistada Boolean @default(false)
+  adjetivo String
+  donoSteamId String
+  dono   User @relation(fields: [donoSteamId], references: [steamId])
+}
+
+model Platinas {
+  id             String  @id @default(cuid())
+  jogo           String
+  trofeuInicial Int
+  trofeuFinal Int
+  trofeuAtual Int
+  points  Int
+  concluido      Boolean @default(false)
+  donoSteamId String
+  dono   User @relation(fields: [donoSteamId], references: [steamId])
+}
+
+model guias_Platinas {
+  id             String  @id @default(cuid())
+  jogo           String
+  conquistaApiName String?
+  conquistaNome String?
+  titulo String
+  descricao String
+  texto String
+  link String
+  aprovado     Boolean @default(false)
   donoSteamId String
   dono   User @relation(fields: [donoSteamId], references: [steamId])
 }

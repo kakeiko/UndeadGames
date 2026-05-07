@@ -53,6 +53,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ goals });
 }
+
 export async function PUT(request: Request) {
     
     const body = await request.json();

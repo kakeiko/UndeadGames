@@ -202,6 +202,8 @@ export type UserWhereInput = {
   points?: Prisma.IntFilter<"User"> | number
   metas?: Prisma.MetaListRelationFilter
   medalhas?: Prisma.MedalhaListRelationFilter
+  platinas?: Prisma.PlatinasListRelationFilter
+  guiasPlatinas?: Prisma.Guias_PlatinasListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -210,6 +212,8 @@ export type UserOrderByWithRelationInput = {
   points?: Prisma.SortOrder
   metas?: Prisma.MetaOrderByRelationAggregateInput
   medalhas?: Prisma.MedalhaOrderByRelationAggregateInput
+  platinas?: Prisma.PlatinasOrderByRelationAggregateInput
+  guiasPlatinas?: Prisma.guias_PlatinasOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -221,6 +225,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   points?: Prisma.IntFilter<"User"> | number
   metas?: Prisma.MetaListRelationFilter
   medalhas?: Prisma.MedalhaListRelationFilter
+  platinas?: Prisma.PlatinasListRelationFilter
+  guiasPlatinas?: Prisma.Guias_PlatinasListRelationFilter
 }, "id" | "steamId">
 
 export type UserOrderByWithAggregationInput = {
@@ -249,6 +255,8 @@ export type UserCreateInput = {
   points?: number
   metas?: Prisma.MetaCreateNestedManyWithoutDonoInput
   medalhas?: Prisma.MedalhaCreateNestedManyWithoutDonoInput
+  platinas?: Prisma.PlatinasCreateNestedManyWithoutDonoInput
+  guiasPlatinas?: Prisma.guias_PlatinasCreateNestedManyWithoutDonoInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -257,6 +265,8 @@ export type UserUncheckedCreateInput = {
   points?: number
   metas?: Prisma.MetaUncheckedCreateNestedManyWithoutDonoInput
   medalhas?: Prisma.MedalhaUncheckedCreateNestedManyWithoutDonoInput
+  platinas?: Prisma.PlatinasUncheckedCreateNestedManyWithoutDonoInput
+  guiasPlatinas?: Prisma.guias_PlatinasUncheckedCreateNestedManyWithoutDonoInput
 }
 
 export type UserUpdateInput = {
@@ -265,6 +275,8 @@ export type UserUpdateInput = {
   points?: Prisma.IntFieldUpdateOperationsInput | number
   metas?: Prisma.MetaUpdateManyWithoutDonoNestedInput
   medalhas?: Prisma.MedalhaUpdateManyWithoutDonoNestedInput
+  platinas?: Prisma.PlatinasUpdateManyWithoutDonoNestedInput
+  guiasPlatinas?: Prisma.guias_PlatinasUpdateManyWithoutDonoNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -273,6 +285,8 @@ export type UserUncheckedUpdateInput = {
   points?: Prisma.IntFieldUpdateOperationsInput | number
   metas?: Prisma.MetaUncheckedUpdateManyWithoutDonoNestedInput
   medalhas?: Prisma.MedalhaUncheckedUpdateManyWithoutDonoNestedInput
+  platinas?: Prisma.PlatinasUncheckedUpdateManyWithoutDonoNestedInput
+  guiasPlatinas?: Prisma.guias_PlatinasUncheckedUpdateManyWithoutDonoNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -364,11 +378,41 @@ export type UserUpdateOneRequiredWithoutMedalhasNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMedalhasInput, Prisma.UserUpdateWithoutMedalhasInput>, Prisma.UserUncheckedUpdateWithoutMedalhasInput>
 }
 
+export type UserCreateNestedOneWithoutPlatinasInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPlatinasInput, Prisma.UserUncheckedCreateWithoutPlatinasInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPlatinasInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPlatinasNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPlatinasInput, Prisma.UserUncheckedCreateWithoutPlatinasInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPlatinasInput
+  upsert?: Prisma.UserUpsertWithoutPlatinasInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPlatinasInput, Prisma.UserUpdateWithoutPlatinasInput>, Prisma.UserUncheckedUpdateWithoutPlatinasInput>
+}
+
+export type UserCreateNestedOneWithoutGuiasPlatinasInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutGuiasPlatinasInput, Prisma.UserUncheckedCreateWithoutGuiasPlatinasInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGuiasPlatinasInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutGuiasPlatinasNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutGuiasPlatinasInput, Prisma.UserUncheckedCreateWithoutGuiasPlatinasInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutGuiasPlatinasInput
+  upsert?: Prisma.UserUpsertWithoutGuiasPlatinasInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutGuiasPlatinasInput, Prisma.UserUpdateWithoutGuiasPlatinasInput>, Prisma.UserUncheckedUpdateWithoutGuiasPlatinasInput>
+}
+
 export type UserCreateWithoutMetasInput = {
   id?: string
   steamId: string
   points?: number
   medalhas?: Prisma.MedalhaCreateNestedManyWithoutDonoInput
+  platinas?: Prisma.PlatinasCreateNestedManyWithoutDonoInput
+  guiasPlatinas?: Prisma.guias_PlatinasCreateNestedManyWithoutDonoInput
 }
 
 export type UserUncheckedCreateWithoutMetasInput = {
@@ -376,6 +420,8 @@ export type UserUncheckedCreateWithoutMetasInput = {
   steamId: string
   points?: number
   medalhas?: Prisma.MedalhaUncheckedCreateNestedManyWithoutDonoInput
+  platinas?: Prisma.PlatinasUncheckedCreateNestedManyWithoutDonoInput
+  guiasPlatinas?: Prisma.guias_PlatinasUncheckedCreateNestedManyWithoutDonoInput
 }
 
 export type UserCreateOrConnectWithoutMetasInput = {
@@ -399,6 +445,8 @@ export type UserUpdateWithoutMetasInput = {
   steamId?: Prisma.StringFieldUpdateOperationsInput | string
   points?: Prisma.IntFieldUpdateOperationsInput | number
   medalhas?: Prisma.MedalhaUpdateManyWithoutDonoNestedInput
+  platinas?: Prisma.PlatinasUpdateManyWithoutDonoNestedInput
+  guiasPlatinas?: Prisma.guias_PlatinasUpdateManyWithoutDonoNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMetasInput = {
@@ -406,6 +454,8 @@ export type UserUncheckedUpdateWithoutMetasInput = {
   steamId?: Prisma.StringFieldUpdateOperationsInput | string
   points?: Prisma.IntFieldUpdateOperationsInput | number
   medalhas?: Prisma.MedalhaUncheckedUpdateManyWithoutDonoNestedInput
+  platinas?: Prisma.PlatinasUncheckedUpdateManyWithoutDonoNestedInput
+  guiasPlatinas?: Prisma.guias_PlatinasUncheckedUpdateManyWithoutDonoNestedInput
 }
 
 export type UserCreateWithoutMedalhasInput = {
@@ -413,6 +463,8 @@ export type UserCreateWithoutMedalhasInput = {
   steamId: string
   points?: number
   metas?: Prisma.MetaCreateNestedManyWithoutDonoInput
+  platinas?: Prisma.PlatinasCreateNestedManyWithoutDonoInput
+  guiasPlatinas?: Prisma.guias_PlatinasCreateNestedManyWithoutDonoInput
 }
 
 export type UserUncheckedCreateWithoutMedalhasInput = {
@@ -420,6 +472,8 @@ export type UserUncheckedCreateWithoutMedalhasInput = {
   steamId: string
   points?: number
   metas?: Prisma.MetaUncheckedCreateNestedManyWithoutDonoInput
+  platinas?: Prisma.PlatinasUncheckedCreateNestedManyWithoutDonoInput
+  guiasPlatinas?: Prisma.guias_PlatinasUncheckedCreateNestedManyWithoutDonoInput
 }
 
 export type UserCreateOrConnectWithoutMedalhasInput = {
@@ -443,6 +497,8 @@ export type UserUpdateWithoutMedalhasInput = {
   steamId?: Prisma.StringFieldUpdateOperationsInput | string
   points?: Prisma.IntFieldUpdateOperationsInput | number
   metas?: Prisma.MetaUpdateManyWithoutDonoNestedInput
+  platinas?: Prisma.PlatinasUpdateManyWithoutDonoNestedInput
+  guiasPlatinas?: Prisma.guias_PlatinasUpdateManyWithoutDonoNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMedalhasInput = {
@@ -450,6 +506,112 @@ export type UserUncheckedUpdateWithoutMedalhasInput = {
   steamId?: Prisma.StringFieldUpdateOperationsInput | string
   points?: Prisma.IntFieldUpdateOperationsInput | number
   metas?: Prisma.MetaUncheckedUpdateManyWithoutDonoNestedInput
+  platinas?: Prisma.PlatinasUncheckedUpdateManyWithoutDonoNestedInput
+  guiasPlatinas?: Prisma.guias_PlatinasUncheckedUpdateManyWithoutDonoNestedInput
+}
+
+export type UserCreateWithoutPlatinasInput = {
+  id?: string
+  steamId: string
+  points?: number
+  metas?: Prisma.MetaCreateNestedManyWithoutDonoInput
+  medalhas?: Prisma.MedalhaCreateNestedManyWithoutDonoInput
+  guiasPlatinas?: Prisma.guias_PlatinasCreateNestedManyWithoutDonoInput
+}
+
+export type UserUncheckedCreateWithoutPlatinasInput = {
+  id?: string
+  steamId: string
+  points?: number
+  metas?: Prisma.MetaUncheckedCreateNestedManyWithoutDonoInput
+  medalhas?: Prisma.MedalhaUncheckedCreateNestedManyWithoutDonoInput
+  guiasPlatinas?: Prisma.guias_PlatinasUncheckedCreateNestedManyWithoutDonoInput
+}
+
+export type UserCreateOrConnectWithoutPlatinasInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPlatinasInput, Prisma.UserUncheckedCreateWithoutPlatinasInput>
+}
+
+export type UserUpsertWithoutPlatinasInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPlatinasInput, Prisma.UserUncheckedUpdateWithoutPlatinasInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPlatinasInput, Prisma.UserUncheckedCreateWithoutPlatinasInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPlatinasInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPlatinasInput, Prisma.UserUncheckedUpdateWithoutPlatinasInput>
+}
+
+export type UserUpdateWithoutPlatinasInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  steamId?: Prisma.StringFieldUpdateOperationsInput | string
+  points?: Prisma.IntFieldUpdateOperationsInput | number
+  metas?: Prisma.MetaUpdateManyWithoutDonoNestedInput
+  medalhas?: Prisma.MedalhaUpdateManyWithoutDonoNestedInput
+  guiasPlatinas?: Prisma.guias_PlatinasUpdateManyWithoutDonoNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPlatinasInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  steamId?: Prisma.StringFieldUpdateOperationsInput | string
+  points?: Prisma.IntFieldUpdateOperationsInput | number
+  metas?: Prisma.MetaUncheckedUpdateManyWithoutDonoNestedInput
+  medalhas?: Prisma.MedalhaUncheckedUpdateManyWithoutDonoNestedInput
+  guiasPlatinas?: Prisma.guias_PlatinasUncheckedUpdateManyWithoutDonoNestedInput
+}
+
+export type UserCreateWithoutGuiasPlatinasInput = {
+  id?: string
+  steamId: string
+  points?: number
+  metas?: Prisma.MetaCreateNestedManyWithoutDonoInput
+  medalhas?: Prisma.MedalhaCreateNestedManyWithoutDonoInput
+  platinas?: Prisma.PlatinasCreateNestedManyWithoutDonoInput
+}
+
+export type UserUncheckedCreateWithoutGuiasPlatinasInput = {
+  id?: string
+  steamId: string
+  points?: number
+  metas?: Prisma.MetaUncheckedCreateNestedManyWithoutDonoInput
+  medalhas?: Prisma.MedalhaUncheckedCreateNestedManyWithoutDonoInput
+  platinas?: Prisma.PlatinasUncheckedCreateNestedManyWithoutDonoInput
+}
+
+export type UserCreateOrConnectWithoutGuiasPlatinasInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutGuiasPlatinasInput, Prisma.UserUncheckedCreateWithoutGuiasPlatinasInput>
+}
+
+export type UserUpsertWithoutGuiasPlatinasInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutGuiasPlatinasInput, Prisma.UserUncheckedUpdateWithoutGuiasPlatinasInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutGuiasPlatinasInput, Prisma.UserUncheckedCreateWithoutGuiasPlatinasInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutGuiasPlatinasInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutGuiasPlatinasInput, Prisma.UserUncheckedUpdateWithoutGuiasPlatinasInput>
+}
+
+export type UserUpdateWithoutGuiasPlatinasInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  steamId?: Prisma.StringFieldUpdateOperationsInput | string
+  points?: Prisma.IntFieldUpdateOperationsInput | number
+  metas?: Prisma.MetaUpdateManyWithoutDonoNestedInput
+  medalhas?: Prisma.MedalhaUpdateManyWithoutDonoNestedInput
+  platinas?: Prisma.PlatinasUpdateManyWithoutDonoNestedInput
+}
+
+export type UserUncheckedUpdateWithoutGuiasPlatinasInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  steamId?: Prisma.StringFieldUpdateOperationsInput | string
+  points?: Prisma.IntFieldUpdateOperationsInput | number
+  metas?: Prisma.MetaUncheckedUpdateManyWithoutDonoNestedInput
+  medalhas?: Prisma.MedalhaUncheckedUpdateManyWithoutDonoNestedInput
+  platinas?: Prisma.PlatinasUncheckedUpdateManyWithoutDonoNestedInput
 }
 
 
@@ -460,11 +622,15 @@ export type UserUncheckedUpdateWithoutMedalhasInput = {
 export type UserCountOutputType = {
   metas: number
   medalhas: number
+  platinas: number
+  guiasPlatinas: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   metas?: boolean | UserCountOutputTypeCountMetasArgs
   medalhas?: boolean | UserCountOutputTypeCountMedalhasArgs
+  platinas?: boolean | UserCountOutputTypeCountPlatinasArgs
+  guiasPlatinas?: boolean | UserCountOutputTypeCountGuiasPlatinasArgs
 }
 
 /**
@@ -491,6 +657,20 @@ export type UserCountOutputTypeCountMedalhasArgs<ExtArgs extends runtime.Types.E
   where?: Prisma.MedalhaWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPlatinasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PlatinasWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountGuiasPlatinasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.guias_PlatinasWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -498,6 +678,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   points?: boolean
   metas?: boolean | Prisma.User$metasArgs<ExtArgs>
   medalhas?: boolean | Prisma.User$medalhasArgs<ExtArgs>
+  platinas?: boolean | Prisma.User$platinasArgs<ExtArgs>
+  guiasPlatinas?: boolean | Prisma.User$guiasPlatinasArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -523,6 +705,8 @@ export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   metas?: boolean | Prisma.User$metasArgs<ExtArgs>
   medalhas?: boolean | Prisma.User$medalhasArgs<ExtArgs>
+  platinas?: boolean | Prisma.User$platinasArgs<ExtArgs>
+  guiasPlatinas?: boolean | Prisma.User$guiasPlatinasArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -533,6 +717,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     metas: Prisma.$MetaPayload<ExtArgs>[]
     medalhas: Prisma.$MedalhaPayload<ExtArgs>[]
+    platinas: Prisma.$PlatinasPayload<ExtArgs>[]
+    guiasPlatinas: Prisma.$guias_PlatinasPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -934,6 +1120,8 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   metas<T extends Prisma.User$metasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$metasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MetaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   medalhas<T extends Prisma.User$medalhasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$medalhasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MedalhaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  platinas<T extends Prisma.User$platinasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$platinasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PlatinasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  guiasPlatinas<T extends Prisma.User$guiasPlatinasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$guiasPlatinasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$guias_PlatinasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1404,6 +1592,54 @@ export type User$medalhasArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.MedalhaScalarFieldEnum | Prisma.MedalhaScalarFieldEnum[]
+}
+
+/**
+ * User.platinas
+ */
+export type User$platinasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Platinas
+   */
+  select?: Prisma.PlatinasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Platinas
+   */
+  omit?: Prisma.PlatinasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PlatinasInclude<ExtArgs> | null
+  where?: Prisma.PlatinasWhereInput
+  orderBy?: Prisma.PlatinasOrderByWithRelationInput | Prisma.PlatinasOrderByWithRelationInput[]
+  cursor?: Prisma.PlatinasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PlatinasScalarFieldEnum | Prisma.PlatinasScalarFieldEnum[]
+}
+
+/**
+ * User.guiasPlatinas
+ */
+export type User$guiasPlatinasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the guias_Platinas
+   */
+  select?: Prisma.guias_PlatinasSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the guias_Platinas
+   */
+  omit?: Prisma.guias_PlatinasOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.guias_PlatinasInclude<ExtArgs> | null
+  where?: Prisma.guias_PlatinasWhereInput
+  orderBy?: Prisma.guias_PlatinasOrderByWithRelationInput | Prisma.guias_PlatinasOrderByWithRelationInput[]
+  cursor?: Prisma.guias_PlatinasWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Guias_PlatinasScalarFieldEnum | Prisma.Guias_PlatinasScalarFieldEnum[]
 }
 
 /**

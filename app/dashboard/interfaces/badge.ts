@@ -3,4 +3,5 @@ export interface Badge {
   icon: string;
   objetivo: string;
   conquistada : boolean;
+  adjetivo: string;
 }
